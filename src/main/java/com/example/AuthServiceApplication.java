@@ -17,6 +17,7 @@ import java.security.Principal;
 @EnableAuthorizationServer
 @EnableResourceServer
 @RestController
+@EnableEurekaClient
 public class AuthServiceApplication extends WebMvcConfigurerAdapter {
 
     @RequestMapping("/user")
@@ -26,11 +27,5 @@ public class AuthServiceApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthServiceApplication.class, args);
-    }
-
-    @Configuration
-    @EnableEurekaClient
-    @ConditionalOnProperty("spring.cloud.bootstrap.enabled")
-    static class CloudConfiguration {
     }
 }
